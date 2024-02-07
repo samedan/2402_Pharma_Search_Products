@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+import "./App.css";
+// import { useEffect, useState } from "react";
+// import { cacheChecker } from "./cacheChecker";
+import { Cases } from "./Cases";
+// import Pagination from "./Pagination";
 
 function App() {
+  // const [data, setData] = useState();
+  // const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   // cacheChecker();
+  //   // setData(resJson);
+
+  //   setLoading(false);
+  //   return () => {};
+  // }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <>
+        <Cases />
+      </>
     </div>
   );
+
+  // return <div className="App">loading</div>;
 }
 
 export default App;
