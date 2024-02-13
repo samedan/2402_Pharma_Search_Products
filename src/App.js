@@ -3,6 +3,11 @@ import "./App.css";
 // import { useEffect, useState } from "react";
 // import { cacheChecker } from "./cacheChecker";
 import { Cases } from "./Cases";
+import HomeLoader from "./HomeLoader";
+import { HomeLoaderFunction } from "./HomeLoaderFunction";
+import { Container } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/main.scss";
 // import Pagination from "./Pagination";
 
 function App() {
@@ -19,10 +24,40 @@ function App() {
   // }, []);
 
   return (
-    <div className="App">
-      <>
-        <Cases />
-      </>
+    // <div className={`base-page ${className}`}>
+    //   <Container className="containerClass">
+    //     {title && (
+    //       <div className="page-header">
+    //         <h1 className="page-header-title">{title}</h1>
+    //       </div>
+    //     )}
+    //     {props.children}
+    //   </Container>
+    // </div>
+
+    // <div className={`base-page ${className} App`}>
+    // <div className={`base-page App`}>
+    <div
+      className={`d-flex justify-content-center"`}
+      style={{ margin: " 25px;", width: "1200", height: "600px;" }}
+      // maxWidth="1110px"
+    >
+      <div
+        className="containerClass_"
+        style={{
+          width: "1110px",
+          height: "540px",
+          maxHeight: "540px",
+          margin: "0 auto",
+        }}
+      >
+        <>
+          {/* <Cases /> */}
+          {/* <HomeLoader /> */}
+          <HomeLoaderFunction />
+          {/* {children} */}
+        </>
+      </div>
     </div>
   );
 

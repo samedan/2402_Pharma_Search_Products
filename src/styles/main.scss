@@ -1,0 +1,65 @@
+@import "./shared/colors";
+@import "./shared/mixings";
+
+// PAGES
+@import "./index";
+@import "./blogs";
+@import "./portfolios";
+@import "./about";
+@import "./cv";
+// COMPONENTS
+@import "./header";
+@import "./slate-editor";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  // top: 0;
+  font-family: "Montserrat", "Helvetica";
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.self-typed {
+  font-size: 31px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.absolute {
+  position: absolute;
+}
+.error {
+  font-weight: 700;
+  color: red;
+}
+
+.base-page {
+  padding: 0px 0 0px 0;
+  color: black;
+  background-color: #2ebc1b;
+  min-height: 540px;
+
+  .page-header {
+    .page-header-title {
+      font-weight: 700;
+      color: black;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.base-page-blue {
+  background-color: cornflowerblue;
+}
+.base-page-green {
+  background-color: #2ebc1b;
+}
+.base-page-red {
+  background-color: chocolate;
+}
