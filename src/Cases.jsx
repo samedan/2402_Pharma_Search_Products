@@ -6,6 +6,7 @@ import Pagination from "./Pagination";
 import { Button, Link } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import HomeIcon from "@mui/icons-material/Home";
+import ModalView from "./ModalView";
 
 export async function cacheChecker() {
   // fetch("/meta.json");
@@ -31,6 +32,7 @@ export async function cacheChecker() {
   // });
 }
 export const Cases = () => {
+  // const axiosEndPoint = "https://articole-smart.eu/search/config_test.php";
   const axiosEndPoint = "https://articole-smart.eu/search/config_test.php";
 
   const [results, setResults] = useState([]);
@@ -61,6 +63,12 @@ export const Cases = () => {
     // setFilteredResults
     setLetter(letter);
   }, [filteredResults, letter]);
+
+  function goToAnimation() {
+    window.location.replace(
+      "https://bilan-sante.pharmacie-en-couleurs-eragny.com/"
+    );
+  }
 
   const getData = async function cacheChecker() {
     setLoading(true);
@@ -177,7 +185,7 @@ export const Cases = () => {
               // padding: "10px",
               boxSizing: "border-box",
               width: "100%",
-              height: "100%",
+              height: "40px",
             }}
           >
             {
@@ -218,13 +226,18 @@ export const Cases = () => {
                 sx={{ width: 1, height: "100vh" }}
                 style={{ height: "60vh", width: "100%", textAlign: "center" }}
               >
-                <h1>
-                  Dans la liste ci-dessus, veuillez choisir la{" "}
-                  <span style={{ color: "#0fbcf9" }}>
-                    Première lettre du nom du produit
-                  </span>{" "}
-                  pour lancer la recherche
-                </h1>
+                <div style={{ width: "80%" }}>
+                  <h1>Rechercher le prix d'un médicament</h1>
+                  <p>Dernière mise à jour : </p>
+                  <br />
+                  <h1>
+                    Dans la liste ci-dessus, veuillez choisir la{" "}
+                    <span style={{ color: "#0fbcf9", fontWeight: "bold" }}>
+                      Première lettre du nom du produit
+                    </span>{" "}
+                    pour lancer la recherche
+                  </h1>
+                </div>
               </Stack>
               <div
                 style={{
@@ -246,6 +259,7 @@ export const Cases = () => {
                   variant="contained"
                   color="success"
                   style={{ width: "200px" }}
+                  onClick={goToAnimation}
                 >
                   Retour au debut
                 </Button>
@@ -292,6 +306,7 @@ export const Cases = () => {
         // </table>
       )}
       {loading && <p>Loading...</p>}
+      <ModalView />
     </>
   );
 };

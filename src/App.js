@@ -3,9 +3,9 @@ import "./App.css";
 // import { useEffect, useState } from "react";
 // import { cacheChecker } from "./cacheChecker";
 import { Cases } from "./Cases";
-import HomeLoader from "./HomeLoader";
-import { HomeLoaderFunction } from "./HomeLoaderFunction";
-import { Container } from "reactstrap";
+// import HomeLoader from "./HomeLoader";
+// import { HomeLoaderFunction } from "./HomeLoaderFunction";
+// import { Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/main.scss";
 // import Pagination from "./Pagination";
@@ -39,7 +39,12 @@ function App() {
     // <div className={`base-page App`}>
     <div
       className={`d-flex justify-content-center"`}
-      style={{ margin: " 25px;", width: "1200", height: "600px;" }}
+      style={{
+        margin: " 25px;",
+        width: "1200",
+        height: "600px;",
+        maxHeight: "600px !important;",
+      }}
       // maxWidth="1110px"
     >
       <div
@@ -47,14 +52,14 @@ function App() {
         style={{
           width: "1110px",
           height: "540px",
-          maxHeight: "540px",
+          maxHeight: "540px !important",
           margin: "0 auto",
         }}
       >
         <>
-          {/* <Cases /> */}
+          <Cases />
           {/* <HomeLoader /> */}
-          <HomeLoaderFunction />
+          {/* <HomeLoaderFunction /> */}
           {/* {children} */}
         </>
       </div>

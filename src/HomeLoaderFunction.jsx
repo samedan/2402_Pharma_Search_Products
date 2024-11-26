@@ -7,6 +7,7 @@ import { Container, Row, Col, Button } from "reactstrap";
 
 export function HomeLoaderFunction() {
   const [isFlipping, setIsFlipping] = useState(false);
+  const [isSurveyFlipping, setIsSurveyFlipping] = useState(true);
   const [colorClass, setColorClass] = useState("");
 
   const roles = [
@@ -18,45 +19,74 @@ export function HomeLoaderFunction() {
     "Peau, Cheveaux et Ongles",
   ];
 
-  const colors = ["green", "blue", "red"];
+  // Colors come from /src/styles/main.scss
+  const colors = [
+    "green",
+    "blue",
+    "red",
+    "indigo",
+    "pink",
+    "orange",
+    "yellow",
+    "teal",
+    "purple",
+  ];
 
   let i = 0;
-
   useEffect(() => {
-    // animateCard();
-
-    const intervalID = setInterval(() => {
-      setIsFlipping((isFlipping) => !isFlipping);
-      if (i < 3) {
+    const interval = setInterval(() => {
+      if (i < 9) {
+        console.log(i);
         setColorClass(colors[i]);
         i++;
       } else {
-        if ((i = 3)) {
-          i = 0;
-        }
+        i = 0;
       }
     }, 3000);
+    return () => {
+      i++;
+      clearInterval(interval);
+    };
+  }, []);
 
-    return () => clearInterval(intervalID);
+  let j = 0;
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      if (j < 10) {
+        console.log("j=" + j);
+        console.log(isSurveyFlipping);
+        j++;
+      } else if ((j = 10)) {
+        console.log("j=" + j);
+        setIsSurveyFlipping(!isSurveyFlipping);
+        setIsFlipping(!isFlipping);
+        console.log(isSurveyFlipping);
+        j = 0;
+      }
+    }, 1000);
+    return () => {
+      j++;
+      clearInterval(intervalID);
+    };
   }, []);
 
   // componentWillUnmount() {
   //   this.cardAnimationInterval && clearInterval(this.cardAnimationInterval);
   // }
 
-  function animateCard() {
-    // this.cardAnimationInterval = setInterval(() => {
-    setInterval(() => {
-      setIsFlipping(!isFlipping);
-    }, 5000);
-    console.log("isFlipping");
-    console.log(isFlipping);
-    //   setIsFlipping(
-    //     !isFlipping
-    //   );
-    // },
-    // 10000);
-  }
+  // function animateCard() {
+  //   // this.cardAnimationInterval = setInterval(() => {
+  //   setInterval(() => {
+  //     setIsFlipping(!isFlipping);
+  //   }, 5000);
+  //   console.log("isFlipping");
+  //   console.log(isFlipping);
+  //   //   setIsFlipping(
+  //   //     !isFlipping
+  //   //   );
+  //   // },
+  //   // 10000);
+  // }
 
   // componentWillUnmount() {
   //   this.setState({ isFlipping: '' });
@@ -86,85 +116,172 @@ export function HomeLoaderFunction() {
         typeSpeed={40}
       /> */}
 
-          <>
-            <Row>
-              <Col md="6">
-                <div className="hero-section">
-                  <div className={`flipper ${isFlipping ? "isFlipping" : ""}`}>
-                    <div className="front">
-                      <div className="hero-section-content">
-                        <h2> Bilan Santé </h2>
-                        <div className="hero-section-content-intro">
-                          Veuillez découvrir notre vitrine digitale et réalisez
-                          un bilan santé gratuit
+          {!isSurveyFlipping && (
+            <>
+              <Row>
+                <Col md="6">
+                  <div className="hero-section">
+                    <div
+                      className={`flipper ${isFlipping ? "isFlipping" : ""}`}
+                    >
+                      <div className="front">
+                        <div className="hero-section-content">
+                          <h2> STOCK Meds</h2>
+                          <div className="hero-section-content-intro">
+                            Veuillez découvrir notre vitrine digitale et
+                            réalisez un bilan santé gratuit
+                          </div>
+                        </div>
+                        <img
+                          className="image"
+                          src="./static/images/section-3.jpg"
+                        />
+                        <div className="shadow-custom">
+                          <div className="shadow-inner"> </div>
                         </div>
                       </div>
-                      <img
-                        className="image"
-                        src="./static/images/section-1.jpg"
-                      />
-                      <div className="shadow-custom">
-                        <div className="shadow-inner"> </div>
-                      </div>
-                    </div>
-                    <div className="back">
-                      <div className="hero-section-content">
-                        <h2> Bilan Santé </h2>
-                        <div className="hero-section-content-intro">
-                          Veuillez découvrir notre vitrine digitale et réalisez
-                          un bilan santé gratuit
+                      <div className="back">
+                        <div className="hero-section-content">
+                          <h2> STOCK Meds </h2>
+                          <div className="hero-section-content-intro">
+                            Veuillez découvrir notre vitrine digitale et
+                            réalisez un bilan santé gratuit
+                          </div>
                         </div>
-                      </div>
-                      <img
-                        className="image"
-                        src="./static/images/section-2.jpg"
-                      />
-                      <div className="shadow-custom shadow-custom-2">
-                        <div className="shadow-inner"> </div>
+                        <img
+                          className="image"
+                          src="./static/images/section-4.jpg"
+                        />
+                        <div className="shadow-custom shadow-custom-2">
+                          <div className="shadow-inner"> </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Col>
-              <Col md="5" className="hero-welcome-wrapper">
-                <div className="hero-welcome-bio">
-                  {/* <h1>Let's take a look on my work.</h1> */}
-                  <Button
-                    color="primary"
-                    size="lg"
-                    style={{ border: "2px solid white" }}
-                  >
-                    Commencez mon Bilan Santé
-                  </Button>
-                </div>
-                <div className="hero-welcome-text">
-                  <h1>
-                    {/* <span>
+                </Col>
+                <Col md="5" className="hero-welcome-wrapper">
+                  <div className="hero-welcome-bio">
+                    {/* <h1>Let's take a look on my work.</h1> */}
+                    <Button
+                      color="primary"
+                      size="lg"
+                      style={{ border: "2px solid white" }}
+                    >
+                      Commencez mon Bilan Santé
+                    </Button>
+                  </div>
+                  <div className="hero-welcome-text">
+                    <h1>
+                      {/* <span>
                       Welcome, <b>user.name</b>
                       <br />
                     </span> */}
-                    trouvez nos conseils et recommandations sur les sujets
-                    suivants :
-                  </h1>
-                </div>
+                      trouvez nos conseils et recommandations sur les sujets
+                      suivants :
+                    </h1>
+                  </div>
 
-                <ReactTyped
-                  loop
-                  typeSpeed={60}
-                  backSpeed={60}
-                  strings={roles}
-                  shuffle={false}
-                  backDelay={1000}
-                  fadeOut={false}
-                  fadeOutDelay={100}
-                  loopCount={0}
-                  showCursor
-                  cursorChar="|"
-                  className="self-typed"
-                />
-              </Col>
-            </Row>
-          </>
+                  <ReactTyped
+                    loop
+                    typeSpeed={60}
+                    backSpeed={60}
+                    strings={roles}
+                    shuffle={false}
+                    backDelay={1000}
+                    fadeOut={false}
+                    fadeOutDelay={100}
+                    loopCount={0}
+                    showCursor
+                    cursorChar="|"
+                    className="self-typed"
+                  />
+                </Col>
+              </Row>
+            </>
+          )}
+          {isSurveyFlipping && (
+            <>
+              <Row>
+                <Col md="5" className="hero-welcome-wrapper">
+                  <div className="hero-welcome-bio">
+                    {/* <h1>Let's take a look on my work.</h1> */}
+                    <Button
+                      color="primary"
+                      size="lg"
+                      style={{ border: "2px solid white" }}
+                    >
+                      Commencez mon Bilan Santé
+                    </Button>
+                  </div>
+                  <div className="hero-welcome-text">
+                    <h1>
+                      {/* <span>
+                      Welcome, <b>user.name</b>
+                      <br />
+                    </span> */}
+                      trouvez nos conseils et recommandations sur les sujets
+                      suivants :
+                    </h1>
+                  </div>
+
+                  <ReactTyped
+                    loop
+                    typeSpeed={60}
+                    backSpeed={60}
+                    strings={roles}
+                    shuffle={false}
+                    backDelay={1000}
+                    fadeOut={false}
+                    fadeOutDelay={100}
+                    loopCount={0}
+                    showCursor
+                    cursorChar="|"
+                    className="self-typed"
+                  />
+                </Col>
+                <Col md="6">
+                  <div className="hero-section">
+                    <div
+                      className={`flipper ${isFlipping ? "isFlipping" : ""}`}
+                    >
+                      <div className="front">
+                        <div className="hero-section-content">
+                          <h2> Bilan Santé </h2>
+                          <div className="hero-section-content-intro">
+                            Veuillez découvrir notre vitrine digitale et
+                            réalisez un bilan santé gratuit
+                          </div>
+                        </div>
+                        <img
+                          className="image"
+                          src="./static/images/section-1.jpg"
+                        />
+                        <div className="shadow-custom">
+                          <div className="shadow-inner"> </div>
+                        </div>
+                      </div>
+                      <div className="back">
+                        <div className="hero-section-content">
+                          <h2> Bilan Santé </h2>
+                          <div className="hero-section-content-intro">
+                            Veuillez découvrir notre vitrine digitale et
+                            réalisez un bilan santé gratuit
+                          </div>
+                        </div>
+                        <img
+                          className="image"
+                          src="./static/images/section-2.jpg"
+                        />
+                        <div className="shadow-custom shadow-custom-2">
+                          <div className="shadow-inner"> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </>
+          )}
         </div>
       </Container>
     </div>

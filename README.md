@@ -8,6 +8,10 @@ Search Product Module for the Pharmacy
 - Second step: CSV pass to SQL file
 - Load SQL data in config_test.php on the Backend
 
+# Colors
+
+> Colors come from /src/styles/main.scss
+
 # Preview
 
 ![alt text](stock.jpg)

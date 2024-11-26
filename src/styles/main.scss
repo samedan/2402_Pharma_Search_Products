@@ -55,11 +55,38 @@ body {
 }
 
 .base-page-blue {
+  transition: 0.5s;
   background-color: cornflowerblue;
 }
 .base-page-green {
+  transition: 0.5s;
   background-color: #2ebc1b;
 }
 .base-page-red {
-  background-color: chocolate;
+  transition: 0.5s;
+  background-color: #dc3545;
+}
+.base-page-indigo {
+  transition: 0.5s;
+  background-color: #6610f2;
+}
+.base-page-pink {
+  transition: 0.5s;
+  background-color: #e83e8c;
+}
+.base-page-purple {
+  transition: 0.5s;
+  background-color: #6f42c1;
+}
+.base-page-orange {
+  transition: 0.5s;
+  background-color: #fd7e14;
+}
+.base-page-yellow {
+  transition: 0.5s;
+  background-color: #ffc107;
+}
+.base-page-teal {
+  transition: 0.5s;
+  background-color: #0085a1;
 }
