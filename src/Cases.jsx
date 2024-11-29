@@ -11,6 +11,7 @@ import ModalView from "./ModalView";
 export async function cacheChecker() {
   // fetch("/meta.json");
   const res = await fetch("https://articole-smart.eu/search/config.php");
+  // const res = await fetch("http://localhost/demo/search.php");
   const response = await res.json();
   return response;
 
@@ -32,14 +33,15 @@ export async function cacheChecker() {
   // });
 }
 export const Cases = () => {
-  // const axiosEndPoint = "https://articole-smart.eu/search/config_test.php";
   const axiosEndPoint = "https://articole-smart.eu/search/config_test.php";
+  // const axiosEndPoint = "http://localhost/demo/search.php";
 
   const [results, setResults] = useState([]);
   const [resultsLoaded, setResultsLoaded] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
   const [letter, setLetter] = useState("");
+  const [dateInsert, setDateInsert] = useState("");
 
   useEffect(() => {
     // setLoading(true);
@@ -75,10 +77,16 @@ export const Cases = () => {
 
     try {
       const res = await axios(axiosEndPoint).then((response) => {
-        console.log("Data:", response.data);
+        // console.log("Data:", response);
+        // console.log("dateInsert:");
+        // console.log(response.data["dateInsert"][0]);
+        setDateInsert(response.data["dateInsert"][0]);
+
         // return response.data;
-        setResults(response.data);
-        setResultsLoaded(response.data);
+        setResults(response.data["data"]);
+        setResultsLoaded(response.data["data"]);
+        // setResults(response.data); // No date server res
+        // setResultsLoaded(response.data); // No date server res
 
         // let filteredUsers = response.data.filter((rowWithLetter) => {
         //   console.log("user");
@@ -228,7 +236,10 @@ export const Cases = () => {
               >
                 <div style={{ width: "80%" }}>
                   <h1>Rechercher le prix d'un médicament</h1>
-                  <p>Dernière mise à jour : </p>
+                  {dateInsert && (
+                    <p>Dernière mise à jour : {dateInsert.label.toString()}</p>
+                  )}
+
                   <br />
                   <h1>
                     Dans la liste ci-dessus, veuillez choisir la{" "}

@@ -15,3 +15,12 @@ Search Product Module for the Pharmacy
 # Preview
 
 ![alt text](stock.jpg)
+
+### Source search file :
+
+> Cases.jsx -> const axiosEndPoint
+> Cases.jsx -> cacheChecker
+
+### PHP search file
+
+> config.php, config_test.php

@@ -94,8 +94,8 @@ export default function ModalView() {
   }
 
   useEffect(() => {
-    console.log("remaining");
-    console.log(remaining);
+    // console.log("remaining");
+    // console.log(remaining);
 
     if (remaining === 30) {
       openModal();
@@ -105,6 +105,8 @@ export default function ModalView() {
     // }
     if (remaining === 0) {
       // goHome();
+      // console.log("time gone");
+
       window.location.replace(
         "https://bilan-sante.pharmacie-en-couleurs-eragny.com/"
       );
