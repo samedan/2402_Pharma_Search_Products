@@ -12,6 +12,7 @@ export async function cacheChecker() {
   // fetch("/meta.json");
   const res = await fetch("https://articole-smart.eu/search/config.php");
   // const res = await fetch("http://localhost/demo/search.php");
+  
   const response = await res.json();
   return response;
 
